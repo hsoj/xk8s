@@ -1,0 +1,16 @@
+#!/bin/sh
+if [ -z "$WAYLAND_DISPLAY" ]; then
+    echo "ERROR: WAYLAND_DISPLAY is not set. Need Wayland environment." >&2
+    exit 1
+fi
+
+DISPLAY=":$(echo $WAYLAND_DISPLAY | cut -d- -f2)"
+XAUTHORITY="$HOME/.Xauthority"
+
+export DISPLAY
+export XAUTHORITY
+
+touch "$XAUTHORITY"
+xauth add "$DISPLAY" . "$(mcookie)"
+exec xinit "/xinitrc" -- /usr/bin/Xwayland \
+    "$DISPLAY" -retro -auth "$XAUTHORITY" -extension MIT-SHM +extension RANDR
