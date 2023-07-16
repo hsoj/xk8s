@@ -17,4 +17,4 @@ jobs:
           dockerfile: Containerfile
           output-file: hadolint.out
       - name: Output hadolint
-        run: cat hadolint.out >> "$GITHUB_OUTPUT"
+        run: echo "Hadolint output:\n $(cat hadolint.out)" >> "$GITHUB_OUTPUT"
