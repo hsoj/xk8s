@@ -15,7 +15,8 @@ jobs:
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: Containerfile
-          format: sarif
           output-file: hadolint.out
       - name: Output hadolint
-        run: echo "Hadolint output:\n $(cat hadolint.out)" >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          echo 'Hadolint output:\n' >> "$GITHUB_STEP_SUMMARY"
+          echo "$(cat hadolint.out)" >> "$GITHUB_STEP_SUMMARY"
