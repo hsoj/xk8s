@@ -17,5 +17,4 @@ jobs:
           dockerfile: Containerfile
           output-file: hadolint.out
       - name: Output hadolint
-        if: ${{ failure() && steps.lint.outcome == 'failure' }}
         run: cat hadolint.out >> "$GITHUB_OUTPUT"
