@@ -6,7 +6,7 @@ COPY startxwayland /startxwayland
 RUN echo "$LANG UTF-8" > /etc/locale.gen \
     && apt-get update \
     && apt-get install -y \
-        dbus-x11 libxv1 mesa-utils meta-utils-extra psmisc procps \
+        dbus-x11 libxv1 mesa-utils mesa-utils-extra psmisc procps \
         locales xauth xinit x11-xserver-utils xwayland fvwm xterm \
     && update-locale --reset LANG=$LANG \
     && chmod 0755 /startxwayland
