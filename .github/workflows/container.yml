@@ -34,3 +34,4 @@ jobs:
         with:
           context: .
           file: Containerfile
+          tags: latest
