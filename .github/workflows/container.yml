@@ -35,3 +35,4 @@ jobs:
           context: .
           file: Containerfile
           tags: latest
+          push: true
