@@ -40,5 +40,5 @@ jobs:
         with:
           context: .
           file: Containerfile
-          tags: latest
+          tags: ${{ github.repository }}:latest
           push: true
